@@ -2,40 +2,113 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mini api imagem com texto</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text2ImageApi Home</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5602/5602476.png" type="image/gif" sizes="16x16" />
+    <meta name="description" content="Faça imagens a partir de texto com essa nova api em seu bot no whatsapp">
+    <meta property="og:image"
+        content="https://thumbs.dreamstime.com/b/banner-engra%C3%A7ado-de-emoji-amarelo-desfruta-cada-cita%C3%A7%C3%A3o-chore-rir-da-ilustra%C3%A7%C3%A3o-emoticon-com-uma-motiva%C3%A7%C3%A3o-positiva-para-159875119.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            background-color: gold;
+        }
+
+        h1 {
+            margin: 2.1rem;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin: 0px 10px 3rem 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        small {
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 
 <body>
-    <center>
-        <h1>Mini API: imagem com texto</h1>
-        <hr>
-        <div>
-            <h2>API endpoints:</h2>
-            <h4>imagem estática:</h4>
-            <p>/ttp?texto=texto&cor=corHex</p>
-            <br>
-            <h4>imagem animada (webp):</h4>
-            <p>/attp?texto=texto</p>
-        </div>
-        <br>
-        <hr>
-        <br>
-        <div>
-            <h2>Teste a API:</h2>
-            <label>texto:</label><br>
-            <input type="text" id="texto"><br><br>
-            <button id="ttp" onclick="run('ttp')">Gerar PNG</button>
-            <button id="attp" onclick="run('attp')">Gerar WEBP</button>
-            <br>
-            <br>
-            <div id="show">
+    <div>
+        <header>
+            <h1>Text2ImageApi</h1>
+            <p>Uma api Open-Source para criação de imagens a partir de emojis.</p>
+        </header>
+        <main>
+            <h2>Como usar</h2>
+            <p>
+                Para usar, você pode estar clonando o código disponivel do meu Github
+                ou por meio dos endpoints.
+            </p>
+            <div>
+                <ul>
+                    <li>
+                        <div>
+                            <h3>Imagem estática</h3>
+                            <a href="https://mini-api-txt2img.zaxs.ml/ttp?texto=texto&cor=3f9cd6" target="_blank"
+                                rel="noopener noreferrer">/ttp?texto=texto&cor=3f9cd6</a>
+                            <p>
+                                Passe como parametros [Texto] e [Cor] para gerar uma imagem
+                                com o texto e cor selecionados.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Imagem animada <small>webp only</small></h3>
+                            <a href="https://mini-api-txt2img.zaxs.ml/attp?texto=texto" target="_blank"
+                                rel="noopener noreferrer">/attp?texto=texto</a>
+                            <p>
+                                Passe como parametro [Texto] para gerar um video com o texto
+                                selecionados.
+                            </p>
+                        </div>
+                    </li>
+                    <br>
+                    <center>
+                        <div>
+                            <h2>Teste a API:</h2>
+                            <label>texto:</label><br>
+                            <input type="text" id="texto"><br><br>
+                            <button id="ttp" onclick="run('ttp')">Gerar PNG</button>
+                            <button id="attp" onclick="run('attp')">Gerar WEBP</button>
+                            <br>
+                            <br>
+                            <div id="show">
 
+                            </div>
+                        </div>
+                    </center>
+
+
+                </ul>
             </div>
-        </div>
-    </center>
+        </main>
+    </div>
 </body>
 <script>
     async function run(host) {
@@ -62,5 +135,6 @@
         }
     }
 </script>
+
 
 </html>
