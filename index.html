@@ -10,11 +10,57 @@
 
 <body>
     <center>
-        <h1>Como usar:</h1>
+        <h1>Mini API: imagem com texto</h1>
+        <hr>
+        <div>
+            <h2>API endpoints:</h2>
+            <h4>imagem estática:</h4>
+            <p>/ttp?texto=texto&cor=corHex</p>
+            <br>
+            <h4>imagem animada (webp):</h4>
+            <p>/attp?texto=texto</p>
+        </div>
         <br>
-        <p><strong>imagem estática: </strong> /ttp?texto=texto&cor=corHex</p>
-        <p><strong>imagem animada(webp): </strong> /attp?texto=texto</p>
+        <hr>
+        <br>
+        <div>
+            <h2>Teste a API:</h2>
+            <label>texto:</label><br>
+            <input type="text" id="texto"><br><br>
+            <button id="ttp" onclick="run('ttp')">Gerar PNG</button>
+            <button id="attp" onclick="run('attp')">Gerar WEBP</button>
+            <br>
+            <br>
+            <div id="show">
+
+            </div>
+        </div>
     </center>
 </body>
+<script>
+    async function run(host) {
+        let txt = document.getElementById('texto').value
+        txt = txt.length ? txt : "teste"
+        host = host == 'ttp' ? '/ttp?texto=' + txt + '&cor=FA7445' : '/attp?texto=' + txt
+        try {
+            let file = await fetch(host)
+            file = await file.arrayBuffer()
+            var binary = '';
+            var bytes = new Uint8Array(file);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            file = btoa(binary)
+            let imagem = document.createElement('img')
+            imagem.src = 'data:image/webp;base64,' + file;
+            imagem.height = 200;
+            document.getElementById('show').innerHTML = ""
+            document.getElementById('show').appendChild(imagem)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+</script>
 
 </html>
