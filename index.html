@@ -114,7 +114,7 @@
     async function run(host) {
         let txt = document.getElementById('texto').value
         txt = txt.length ? txt : "teste"
-        host = host == 'ttp' ? '/ttp?texto=' + txt + '&cor=FA7445' : '/attp?texto=' + txt
+        host = host == 'ttp' ? '/ttp?texto=' + txt : '/attp?texto=' + txt
         try {
             let file = await fetch(host)
             file = await file.arrayBuffer()
