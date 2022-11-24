@@ -6,8 +6,12 @@
 <img src="https://github.com/erickythierry/text-2-image-api/blob/main/screenshot.jpg?raw=true" alt="homepage screenshot" height="400">
 <br>
 <br>
+<br>
 
-<h2>para instalar:</h3>
+## para instalar:
+
+<hr>
+<br>
 
 ```js 
 npm install
@@ -20,10 +24,33 @@ node .
 <br>
 <br>
 
-<h2>EXEMPLOS</h2>
+## API Endpoints:
+
 <hr>
-<img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploEstatico.webp?raw=true" alt="estatico" height="400">
-<img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploAnimado.webp?raw=true" alt="piscando" height="400">
+<br>
+
+### Imagem statica
+
+`http://localhost:5000/ttp?texto=`[sua frase]`&cor=`[cor hex]
+
+<br>
+
+### Imagem piscando
+
+`http://localhost:5000/attp?texto=`[sua frase]
+
+
+<br>
+<br>
+<br>
+
+## Exemplos:
+
+<hr>
+<img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploEstatico.webp?raw=true" alt="estatico" height="200">
+<img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploAnimado.webp?raw=true" alt="piscando" height="200">
+<br>
+<br>
 <br>
 <h3>✅ Projeto já adaptado para executar no Docker</h3>
 <br>
