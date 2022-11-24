@@ -10,7 +10,7 @@
     "keywords": [],
     "author": "erickyThierry",
     "license": "ISC",
-    "repository": "",
+    "repository": "https://github.com/erickythierry/text-2-image-api",
     "dependencies": {
         "@ffmpeg-installer/ffmpeg": "^1.1.0",
         "express": "^4.18.2",
