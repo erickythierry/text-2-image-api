@@ -10,7 +10,6 @@
 
 ## para instalar:
 
-<hr>
 <br>
 
 ```js 
@@ -26,7 +25,6 @@ node .
 
 ## API Endpoints:
 
-<hr>
 <br>
 
 ### Imagem statica
@@ -46,7 +44,6 @@ node .
 
 ## Exemplos:
 
-<hr>
 <img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploEstatico.webp?raw=true" alt="estatico" height="200">
 <img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploAnimado.webp?raw=true" alt="piscando" height="200">
 <br>
