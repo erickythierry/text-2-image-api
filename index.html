@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text2ImageApi Home</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5602/5602476.png" type="image/gif" sizes="16x16" />
-    <meta name="description" content="Faça imagens a partir de texto com essa nova api em seu bot no whatsapp">
+    <meta name="description" content="Faça imagens a partir de texto com essa nova api em seu bot no whatsapp" />
     <meta property="og:image"
-        content="https://thumbs.dreamstime.com/b/banner-engra%C3%A7ado-de-emoji-amarelo-desfruta-cada-cita%C3%A7%C3%A3o-chore-rir-da-ilustra%C3%A7%C3%A3o-emoticon-com-uma-motiva%C3%A7%C3%A3o-positiva-para-159875119.jpg">
+        content="https://thumbs.dreamstime.com/b/banner-engra%C3%A7ado-de-emoji-amarelo-desfruta-cada-cita%C3%A7%C3%A3o-chore-rir-da-ilustra%C3%A7%C3%A3o-emoticon-com-uma-motiva%C3%A7%C3%A3o-positiva-para-159875119.jpg" />
 
     <style>
         * {
@@ -49,6 +49,38 @@
         small {
             font-size: 0.8rem;
         }
+
+        header {
+            margin-top: -300px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        .input-group>input {
+            width: 100%;
+            border: 0;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin: 10px 0px 20px 0px;
+        }
+
+        button {
+            margin: 0px 10px 0px 10px;
+            border: 0px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            background-color: #3f9cd6;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -56,15 +88,26 @@
     <div>
         <header>
             <h1>Text2ImageApi</h1>
-            <p>Uma api Open-Source para criação de imagens a partir de emojis.</p>
+            <p>Uma api Open-Source para criação de imagens a partir de texto e emojis.</p>
         </header>
         <main>
-            <h2>Como usar</h2>
-            <p>
-                Para usar, você pode estar clonando o código disponivel do meu Github
-                ou por meio dos endpoints.
-            </p>
             <div>
+                <div class="input-group">
+                    <label>Insira aqui o seu texto</label>
+                    <input type="text" id="texto" placeholder="Exemplo: A melhor api do mundo" />
+                </div>
+                <div>
+                    <abbr title="/ttp?texto=SeuTextoUrlEncoded&cor=3f9cd6"><button id="ttp" onclick="run('ttp')"
+                            type="button">
+                            PNG
+                        </button></abbr>
+                    <abbr title="/attp?texto=SeuTextoUrlEncoded"><button id="attp" onclick="run('attp')" type="button">
+                            WEBP
+                        </button></abbr>
+                </div>
+                <div id="show"></div>
+            </div>
+            <div style="display: none">
                 <ul>
                     <li>
                         <div>
@@ -88,23 +131,6 @@
                             </p>
                         </div>
                     </li>
-                    <br>
-                    <center>
-                        <div>
-                            <h2>Teste a API:</h2>
-                            <label>texto:</label><br>
-                            <input type="text" id="texto"><br><br>
-                            <button id="ttp" onclick="run('ttp')">Gerar PNG</button>
-                            <button id="attp" onclick="run('attp')">Gerar WEBP</button>
-                            <br>
-                            <br>
-                            <div id="show">
-
-                            </div>
-                        </div>
-                    </center>
-
-
                 </ul>
             </div>
         </main>
@@ -112,29 +138,35 @@
 </body>
 <script>
     async function run(host) {
-        let txt = document.getElementById('texto').value
-        txt = txt.length ? txt : "teste"
-        host = host == 'ttp' ? '/ttp?texto=' + txt : '/attp?texto=' + txt
+        let txt = document.getElementById("texto").value;
+        txt = txt.length ? txt : "teste";
+        host =
+            host === "ttp"
+                ? "/ttp?texto=" + txt + "&cor=FA7445"
+                : "/attp?texto=" + txt;
+
+        host = window.location.href.includes("file:")
+            ? `https://mini-api-txt2img.zaxs.ml${host}`
+            : host;
         try {
-            let file = await fetch(host)
-            file = await file.arrayBuffer()
-            var binary = '';
-            var bytes = new Uint8Array(file);
-            var len = bytes.byteLength;
-            for (var i = 0; i < len; i++) {
+            const fileFromServer = await fetch(host);
+            const fileBuffer = await fileFromServer.arrayBuffer();
+            const bytes = new Uint8Array(fileBuffer);
+            const len = bytes.byteLength;
+            let binary = "";
+            for (let i = 0; i < len; i++) {
                 binary += String.fromCharCode(bytes[i]);
             }
-            file = btoa(binary)
-            let imagem = document.createElement('img')
-            imagem.src = 'data:image/webp;base64,' + file;
+            const file = btoa(binary);
+            let imagem = document.createElement("img");
+            imagem.src = "data:image/webp;base64," + file;
             imagem.height = 200;
-            document.getElementById('show').innerHTML = ""
-            document.getElementById('show').appendChild(imagem)
+            document.getElementById("show").innerHTML = "";
+            document.getElementById("show").appendChild(imagem);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 </script>
-
 
 </html>
