@@ -81,6 +81,18 @@
             font-size: 1rem;
             cursor: pointer;
         }
+
+        #show {
+            display: flex;
+            justify-content: center;
+        }
+
+        #show>img {
+            position: absolute;
+            border: 5px solid black;
+            border-radius: 20px;
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -99,10 +111,10 @@
                 <div>
                     <abbr title="/ttp?texto=SeuTextoUrlEncoded&cor=3f9cd6"><button id="ttp" onclick="run('ttp')"
                             type="button">
-                            PNG
+                            ESTÁTICO
                         </button></abbr>
                     <abbr title="/attp?texto=SeuTextoUrlEncoded"><button id="attp" onclick="run('attp')" type="button">
-                            WEBP
+                            PISCANDO
                         </button></abbr>
                 </div>
                 <div id="show"></div>
@@ -137,6 +149,19 @@
     </div>
 </body>
 <script>
+    let cores = ['#ff0000', '#ffa600', '#ffee00', '#2bff00', '#00ffea', '#3700ff', '#ff00ea']
+    let cont = 0
+
+    setInterval(() => {
+        if (cont <= cores.length) {
+            document.getElementById("attp").style.color = cores[cont];
+            cont++
+        } else {
+            cont = 0
+        }
+    }, 100)
+
+
     async function run(host) {
         let txt = document.getElementById("texto").value;
         txt = txt.length ? txt : "teste";
