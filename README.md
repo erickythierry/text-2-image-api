@@ -23,14 +23,9 @@ node .
 <h2>EXEMPLOS</h2>
 <hr>
 <img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploEstatico.webp?raw=true" alt="estatico" height="400">
-<br>
 <img src="https://github.com/erickythierry/text-2-image-api/blob/main/exemploAnimado.webp?raw=true" alt="piscando" height="400">
 <br>
-<br>
-<br>
-<p>✅ Projeto já adaptado para executar no Docker</p>
-
-<br>
+<h3>✅ Projeto já adaptado para executar no Docker</h3>
 <br>
 <p>um obrigado ao <a href="https://github.com/guiguicdd">Guilherme</a></p> 
 </center>
