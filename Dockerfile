@@ -1,5 +1,4 @@
-FROM node:slim
-RUN mkdir -p /app
+FROM node:18-alpine
 WORKDIR /app
 COPY ./ /app
 ENV PORT 80
