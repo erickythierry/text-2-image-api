@@ -46,7 +46,6 @@ export function ttp(text, color = '#ffffff', name = randomName('.png')) {
     new UltimateTextToImage(text, {
         width: 500,
         height: 500,
-        fontFamily: "Arial, Sans",
         fontColor: color,
         fontSize: 300,
         minFontSize: 10,
