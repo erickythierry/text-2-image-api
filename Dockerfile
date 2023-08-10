@@ -2,7 +2,10 @@ FROM node:18.14.2-alpine
 WORKDIR /app
 RUN apk update && apk add --no-cache build-base \
     cairo-dev pango-dev jpeg-dev libjpeg-turbo-dev giflib-dev \ 
-    librsvg-dev git font-terminus font-inconsolata font-dejavu font-noto font-noto-cjk font-awesome font-noto-extra
+    librsvg-dev git
+RUN apk --no-cache add msttcorefonts-installer fontconfig && \
+    update-ms-fonts && \
+    fc-cache -f
 COPY package*.json ./
 RUN npm install
 COPY ./ /app
