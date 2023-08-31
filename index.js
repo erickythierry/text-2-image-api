@@ -47,7 +47,7 @@ export function ttp(text, color = '#ffffff', name = randomName('.png')) {
         width: 500,
         height: 500,
         fontColor: color,
-        fontFamily: "HelveticaNeue",
+        fontFamily: "Sans",
         fontSize: 300,
         minFontSize: 10,
         lineHeight: 50,
