@@ -1,4 +1,4 @@
-import { UltimateTextToImage } from "ultimate-text-to-image";
+import { UltimateTextToImage, registerFont } from "ultimate-text-to-image";
 import { v4 as uuid } from 'uuid';
 import express from 'express';
 import fs from "fs"
@@ -7,6 +7,8 @@ import { path as ffmpegPath } from '@ffmpeg-installer/ffmpeg';
 import __dirname from "./dirname.js"
 
 ffmpeg.setFfmpegPath(ffmpegPath)
+
+registerFont("./NotoSansTC-Regular.otf")
 
 
 const app = express();
@@ -47,6 +49,7 @@ export function ttp(text, color = '#ffffff', name = randomName('.png')) {
         width: 500,
         height: 500,
         fontColor: color,
+        fontFamily: "Noto Sans TC",
         fontSize: 300,
         minFontSize: 10,
         lineHeight: 50,
