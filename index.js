@@ -53,7 +53,7 @@ export function ttp(text, color = '#ffffff', name = randomName('.png')) {
         lineHeight: 50,
         autoWrapLineHeightMultiplier: 1.2,
         margin: 15,
-        marginBottom: 40,
+        // marginBottom: 40,
         align: "center",
         valign: "middle",
     })
